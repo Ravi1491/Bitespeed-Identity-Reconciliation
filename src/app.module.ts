@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { applicationConfig } from 'config';
 import { Dialect } from 'sequelize';
+import { ContactsModule } from './contacts/contacts.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { Dialect } from 'sequelize';
       autoLoadModels: true,
       synchronize: false,
     }),
+    ContactsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
