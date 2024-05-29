@@ -12,6 +12,7 @@ module.exports = {
       phoneNumber: {
         type: Sequelize.STRING,
         allowNull: true,
+        field: 'phone_number',
       },
       email: {
         type: Sequelize.STRING,
@@ -20,6 +21,7 @@ module.exports = {
       linkedId: {
         type: Sequelize.INTEGER,
         allowNull: true,
+        field: 'linked_id',
         references: {
           model: 'contacts',
           key: 'id',
@@ -29,18 +31,22 @@ module.exports = {
       linkPrecedence: {
         type: Sequelize.ENUM('primary', 'secondary'),
         allowNull: false,
+        field: 'link_precedence',
       },
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,
+        field: 'created_at',
       },
       updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
+        field: 'updated_at',
       },
       deletedAt: {
         type: Sequelize.DATE,
         allowNull: true,
+        field: 'deleted_at',
       },
     });
   },
