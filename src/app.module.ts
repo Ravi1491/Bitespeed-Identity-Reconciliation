@@ -3,6 +3,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import * as Joi from 'joi';
 import { ConfigModule } from '@nestjs/config';
+import { SequelizeModule } from '@nestjs/sequelize';
+import { applicationConfig } from 'config';
+import { Dialect } from 'sequelize';
 
 @Module({
   imports: [
@@ -17,6 +20,17 @@ import { ConfigModule } from '@nestjs/config';
         DB_NAME: Joi.string(),
         PORT: Joi.number().default(3000),
       }),
+    }),
+    SequelizeModule.forRoot({
+      dialect: applicationConfig.db.dbDialect as Dialect,
+      host: applicationConfig.db.host,
+      username: applicationConfig.db.user,
+      password: applicationConfig.db.password,
+      port: parseInt(applicationConfig.db.port, 10),
+      database: applicationConfig.db.name,
+      logging: false,
+      autoLoadModels: true,
+      synchronize: false,
     }),
   ],
   controllers: [AppController],
