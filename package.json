@@ -12,7 +12,7 @@
     "start:dev": "npm run init:db && set NODE_ENV=development&&nest start --watch",
     "init:db": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "start:prod": "npm run init:db && node dist/src/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
