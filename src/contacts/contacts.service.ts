@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateContactDto } from './dto/create-contact.dto';
 import { Contact } from './entities/contact.entity';
+import { LinkPrecedence } from 'src/utils/enum';
 
 @Injectable()
 export class ContactsService {
